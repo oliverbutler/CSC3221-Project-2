@@ -2,21 +2,19 @@
 
 #include "Shape.h"
 
-using namespace std;
-
-class Square : public Shape {
+class Circle : public Shape {
 
 public:
 
-	Square(int length);
+	Circle(int radius);
 
-	Square(int length, int x, int y);
+	Circle(int length, int x, int y);
 
 	/**
 	 * @brief Returns the length of the square
 	 * @return length of the square
 	*/
-	int getLength() const;
+	int getRadius() const;
 
 	bool collidesWith(Shape* rhs);
 
@@ -27,8 +25,7 @@ private:
 	/**
 	 * @brief Height and Width of the square
 	*/
-	int length;
+	int radius;
 
 };
-
 

@@ -1,19 +1,14 @@
 #pragma once
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+enum class ShapeTypes { Circle, Square };
+
 class Shape {
 
 public:
-
-	/**
-	* @brief Create a shape at (0,0)
-	*/
-	Shape();
-
-	/**
-	 * @brief Create a shape at (x,y)
-	 * @param x
-	 * @param y
-	*/
-	Shape(int x, int y);
 
 	/**
 	 * @brief Returns the x component of the coordinate
@@ -25,12 +20,38 @@ public:
 	*/
 	int getY() const;
 
+	void translate(int x, int y);
+
+	/**
+	 * @brief
+	*/
+	ShapeTypes getShapeName() const;
+
+	virtual bool collidesWith(Shape* rhs) = 0;
+
+	/**
+	 * @brief Overloaded operator for <<
+	 * @param out
+	 * @param s
+	 * @return
+	*/
+	friend ostream& operator<<(ostream& out, const Shape& s);
+
+	virtual ostream& print(ostream& out) const;
+
+
 protected:
+
 
 	/**
 	 * @brief Coordinates of the object, (bottom left rectangle, center circle)
 	*/
 	int x, y;
 
+	ShapeTypes type;
+
 };
+
+
+
 

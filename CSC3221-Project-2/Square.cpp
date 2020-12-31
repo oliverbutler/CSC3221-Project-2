@@ -1,22 +1,53 @@
 #include "Shape.h"
 #include "Square.h"
+#include "Collision.h"
+#include <iostream>
 
-// Equivalent to Square::Square(int height, int width) : Shape() {
+Square::Square(int length) : Square(length, 0, 0) {}
 
-Square::Square(int height, int width) {
-	this->height = height;
-	this->width = width;
+Square::Square(int length, int x, int y) {
+	this->length = length;
+	this->x = x;
+	this->y = y;
+
+	this->type = ShapeTypes::Square;
+
 }
 
-Square::Square(int height, int width, int x, int y) : Shape(x, y) {
-	this->height = height;
-	this->width = width;
+int Square::getLength() const {
+	return this->length;
 }
 
-int Square::getHeight() const {
-	return this->height;
+/**
+ * @brief Uses the appropriate collision algorithm depending on which shape type the Shape is
+ * @param rhs
+ * @return
+*/
+bool Square::collidesWith(Shape* rhs) {
+	Square* square = this;
+
+	switch (rhs->getShapeName()) {
+
+	case ShapeTypes::Square:
+	{
+		Square* downCast = static_cast<Square*>(rhs);
+		return squareCollision(square, downCast);
+	}
+	case ShapeTypes::Circle:
+	{
+		Circle* downCast = static_cast<Circle*>(rhs);
+		return squareCircleCollision(square, downCast);
+	}
+
+	default:
+		return false;
+	}
+
 }
 
-int Square::getWidth() const {
-	return this->width;
+ostream& Square::print(ostream& out) const {
+	Shape::print(out);
+	out << "length=" << length;
+	return out;
 }
+
