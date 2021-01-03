@@ -31,6 +31,7 @@ bool Circle::collidesWith(Shape* rhs) {
 
 	case ShapeTypes::Square:
 	{
+		// Cast to a square and do collision check
 		Square* downCast = static_cast<Square*>(rhs);
 		return squareCircleCollision(downCast, circle);
 	}

@@ -206,5 +206,8 @@ TEST(SquareCircleColide, Basic) {
 	Shape* s6 = new Square(5, 0, 0);
 	ASSERT_TRUE(s5->collidesWith(s6));
 
-
+	// Collide
+	Shape* s7 = new Square(3, 0, 1);
+	Shape* s8 = new Circle(2, 2, 2);
+	ASSERT_TRUE(s7->collidesWith(s8));
 }

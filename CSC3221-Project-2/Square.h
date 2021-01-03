@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// To be 3d, we just need to add a z component
+
 class Square : public Shape {
 
 public:

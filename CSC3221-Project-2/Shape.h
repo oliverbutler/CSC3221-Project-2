@@ -10,6 +10,9 @@ class Shape {
 
 public:
 
+	// For 3d Support simply change Circle, Square to Sphere + Cube
+	// Add getZ and setZ
+
 	/**
 	 * @brief Returns the x component of the coordinate
 	*/
@@ -20,6 +23,19 @@ public:
 	*/
 	int getY() const;
 
+	/**
+	 * @brief Sets x, given x
+	*/
+	void setX(int x);
+
+	/**
+	 * @brief Sets y given y
+	*/
+	void setY(int y);
+
+	/**
+	 * @brief Translates the shapes x, y
+	*/
 	void translate(int x, int y);
 
 	/**
@@ -46,7 +62,7 @@ protected:
 	/**
 	 * @brief Coordinates of the object, (bottom left rectangle, center circle)
 	*/
-	int x, y;
+	int x, y; // add z for 3
 
 	ShapeTypes type;
 

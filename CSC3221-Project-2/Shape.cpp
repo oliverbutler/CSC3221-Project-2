@@ -12,6 +12,14 @@ int Shape::getY() const {
 	return this->y;
 }
 
+void Shape::setX(int x) {
+	this->x = x;
+}
+
+void Shape::setY(int y) {
+	this->y = y;
+}
+
 void Shape::translate(int x, int y) {
 	this->x += x;
 	this->y += y;

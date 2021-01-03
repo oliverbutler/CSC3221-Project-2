@@ -3,6 +3,7 @@
 #include "Collision.h"
 #include <iostream>
 
+// Handy shorthand to shorten this constructor
 Square::Square(int length) : Square(length, 0, 0) {}
 
 Square::Square(int length, int x, int y) {
@@ -45,6 +46,7 @@ bool Square::collidesWith(Shape* rhs) {
 
 }
 
+// Appends this length to the base shape print
 ostream& Square::print(ostream& out) const {
 	Shape::print(out);
 	out << "length=" << length;
