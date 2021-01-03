@@ -2,6 +2,6 @@
 
 // Demo game declaration
 int main() {
-	Game g = Game(10, 10, 2, 20);
+	Game g = Game(3, 3, 2, 10);
 	g.play();
 }
